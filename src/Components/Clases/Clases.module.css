@@ -1,0 +1,226 @@
+.clasesSection {
+  background-color: #0b0b0b; /* Fondo oscuro unificado con Precios */
+  padding: 100px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- ENCABEZADO --- */
+.header {
+  text-align: center;
+  margin-bottom: 40px; /* Reducido de 60px a 40px para dar espacio al filtro */
+}
+
+.tagline {
+  color: var(--color-accent); /* Tu verde limón */
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+/* --- BARRA DE FILTROS MINIMALISTA (NUEVO) --- */
+.filterBar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--color-text-muted);
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filterBtn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.filterBtnActive {
+  background-color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  color: #000000 !important;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(222, 255, 154, 0.2);
+}
+
+/* --- GRID DE TARJETAS --- */
+.clasesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 para pantallas de escritorio */
+  gap: 30px;
+}
+
+.claseCard {
+  background-color: var(--color-surface); /* Gris oscuro de tu paleta */
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.claseCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(222, 255, 154, 0.15); /* Sutil destello de tu verde */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.iconWrapper {
+  color: var(--color-accent);
+  background-color: rgba(222, 255, 154, 0.05);
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoriaTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+}
+
+.claseTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.claseDesc {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  flex-grow: 1; /* Alinea los metadatos y botones equitativamente */
+}
+
+/* --- METADATOS (Horario & Coach) --- */
+.metaData {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 16px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.metaIcon {
+  color: var(--color-accent);
+}
+
+/* --- BOTÓN REFINADO --- */
+.bookBtn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.arrowIcon {
+  transition: transform 0.2s ease;
+}
+
+/* Al pasar el cursor por la tarjeta, el botón se ilumina en sintonía */
+.claseCard:hover .bookBtn {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.bookBtn:hover {
+  background-color: var(--color-accent);
+  color: #000000 !important;
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 15px rgba(222, 255, 154, 0.3);
+}
+
+/* Micro-interacción de la flecha al hacer hover en el botón */
+.bookBtn:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .clasesSection {
+    padding: 80px 24px;
+  }
+  .clasesGrid {
+    grid-template-columns: 1fr; /* 1 sola columna en dispositivos móviles */
+    gap: 24px;
+  }
+  .claseCard {
+    padding: 28px;
+  }
+}

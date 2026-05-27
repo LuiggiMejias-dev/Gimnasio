@@ -1,0 +1,200 @@
+.tiendaSection {
+  background-color: #0b0b0b;
+  padding: 100px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- ENCABEZADO --- */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tagline {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* --- GRID DE PRODUCTOS --- */
+.productosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.productCard {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(222, 255, 154, 0.15);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.productTag {
+  background: rgba(222, 255, 154, 0.08);
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.categoryName {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* --- CONTENEDOR DE LA IMAGEN (FIX PRINCIPAL) --- */
+.imageWrapper {
+  height: 220px;            /* Altura fija y clara para el contenedor */
+  width: 100%;             /* Ancho completo de la tarjeta */
+  background-color: rgba(255, 255, 255, 0.02); /* Fondo sutil de prueba */
+  border-radius: 6px;
+  display: flex;           /* Flexbox para centrar la imagen */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  overflow: hidden;        /* Evita que se desborde */
+}
+
+.productImage {
+  width: auto;
+  height: auto;
+  max-width: 85%;          /* Obliga a la imagen a no salirse del cuadro */
+  max-height: 85%;         /* Asegura que no colapse verticalmente */
+  object-fit: contain;     /* Mantiene la proporción de tus PNGs */
+  display: block;          /* Elimina espacios fantasmas inferiores */
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);  /* Efecto pop-out premium */
+}
+
+/* --- DETALLES DE INFORMACIÓN --- */
+.productName {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.benefitsList li {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.starIcon {
+  color: var(--color-accent);
+}
+
+/* --- FOOTER DE LA TARJETA --- */
+.footerBox {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;        /* Empuja el precio al fondo equitativamente */
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.currency {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+.buyBtn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.buyBtn:hover {
+  background-color: var(--color-accent);
+  color: #000000;
+  border-color: var(--color-accent);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .productosGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

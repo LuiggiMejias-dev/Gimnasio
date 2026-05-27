@@ -1,0 +1,123 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75); /* Fondo oscuro equilibrado */
+  backdrop-filter: blur(12px); /* Eleva el desenfoque para que la parte de atrás se vea bien borrosa */
+  -webkit-backdrop-filter: blur(12px); /* Compatibilidad con Safari */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  cursor: pointer; /* Le dice al usuario que puede hacer clic para salir */
+}
+
+.modal {
+  background-color: #0d0d0d;
+  border: 2px solid var(--color-accent);
+  padding: 48px 32px;
+  border-radius: 12px;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(222, 255, 154, 0.2);
+  cursor: default; /* Evita que dentro del modal salga la mano de clic en el fondo */
+  animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.closeBtn:hover {
+  color: #ffffff;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(222, 255, 154, 0.1);
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.title span {
+  color: var(--color-accent);
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+.description strong {
+  color: #ffffff;
+}
+
+.actionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.claimBtn {
+  background-color: var(--color-accent);
+  color: #000000;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 280px;
+  transition: all 0.2s ease;
+}
+
+.claimBtn:hover {
+  background-color: #ffffff;
+  transform: scale(1.03);
+}
+
+.countdown {
+  font-size: 0.75rem;
+  color: rgba(239, 68, 68, 0.8);
+  font-weight: 600;
+  text-transform: uppercase;
+}

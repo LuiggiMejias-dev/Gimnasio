@@ -1,0 +1,215 @@
+.preciosSection {
+  background-color: #0b0b0b; /* Fondo oscuro profundo */
+  padding: 100px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px; /* Misma línea de simetría de tu navbar, hero y footer */
+  margin: 0 auto;
+}
+
+/* --- ENCABEZADO --- */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tagline {
+  color: var(--color-accent); /* Tu verde limón / accent */
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: 400; /* Peso limpio y uniforme */
+  font-family: inherit; /* Hereda la tipografía principal de la app para que vaya a juego */
+  max-width: 650px; /* Ampliamos el ancho para que el texto entre fluido en una o dos líneas sin cortes raros */
+  margin: 0 auto;
+  line-height: 1.5;
+  letter-spacing: 0.2px; /* Un sutil espaciado para mejorar la legibilidad */
+}
+
+/* --- GRID DE TARJETAS --- */
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.priceCard {
+  background-color: var(--color-surface); /* Gris oscuro de tu paleta */
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.priceCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Destacar el plan intermedio (3 veces por semana) */
+.destacadoCard {
+  border: 1px solid var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.destacadoCard:hover {
+  border-color: var(--color-accent);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-accent);
+  color: #000000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+/* --- ELEMENTOS INTERNOS --- */
+.cardHeader {
+  margin-bottom: 28px;
+}
+
+.iconWrapper {
+  color: var(--color-accent);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.planName {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.planDesc {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+  min-height: 40px;
+}
+
+.priceWrapper {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.currencyAmount {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.period {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* Lista de características */
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1; /* Empuja el botón siempre hacia abajo para simetría */
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.checkIcon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.actionBtn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnOutline {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.btnOutline:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: #ffffff;
+}
+
+.btnAccent {
+  background-color: var(--color-accent);
+  border: none;
+  color: #000000;
+}
+
+.btnAccent:hover {
+  background-color: #ffffff;
+  transform: scale(1.02);
+}
+
+/* --- RESPONSIVE BÁSICO --- */
+@media (max-width: 900px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .priceCard {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

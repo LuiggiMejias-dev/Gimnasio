@@ -1,0 +1,156 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 440px;
+  padding: 36px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #555555;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: #ffffff;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.planBadge {
+  background: rgba(222, 255, 154, 0.1);
+  color: #deff9a; /* Tu color verde fosforescente/accent */
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #888888;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.priceHighlight {
+  color: #deff9a;
+  font-weight: 700;
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.7rem;
+  color: #aaaaaa;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  color: #444444;
+  transition: color 0.2s;
+}
+
+.inputWrapper input {
+  width: 100%;
+  background-color: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 12px 12px 12px 42px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.inputWrapper input:focus {
+  border-color: #deff9a;
+  background-color: #181818;
+}
+
+.inputWrapper input:focus + .inputIcon {
+  color: #deff9a;
+}
+
+.submitBtn {
+  background-color: #deff9a;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.submitBtn:hover {
+  background-color: #cbfa7f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(222, 255, 154, 0.2);
+}
