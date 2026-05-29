@@ -1,0 +1,340 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modalContent {
+  background-color: var(--color-surface, #121212);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 760px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #888888;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.modalBody {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+/* --- SECCIÓN IZQUIERDA (IMAGEN) --- */
+.imageSection {
+  background-color: rgba(255, 255, 255, 0.01);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px;
+}
+
+.categoryTag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 0.65rem;
+  color: #888888;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.modalImg {
+  max-width: 90%;
+  max-height: 260px;
+  object-fit: contain;
+}
+
+/* --- SECCIÓN DERECHA (INFORMACIÓN) --- */
+.infoSection {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+
+.productName {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.currency {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  margin: 20px 0;
+}
+
+/* --- CONTADOR Y TEXTO PROMO --- */
+.quantitySection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.quantityLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sectionLabel {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  font-weight: 600;
+}
+
+.promoHint {
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.counterWrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.counterBtn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.counterBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.counterBtn:disabled {
+  color: #444444;
+  cursor: not-allowed;
+}
+
+.quantityNumber {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  width: 32px;
+  text-align: center;
+}
+
+/* --- CAJAS DINÁMICAS --- */
+.guaranteeBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: auto;
+}
+
+.shieldIcon {
+  color: var(--color-accent);
+}
+
+.promoActiveBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(222, 255, 154, 0.08);
+  border: 1px solid var(--color-accent);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: auto;
+  animation: pulseBox 0.3s ease-out;
+}
+
+@keyframes pulseBox {
+  0% { transform: scale(0.98); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.promoIcon {
+  color: var(--color-accent);
+}
+
+/* --- FOOTER DEL MODAL (CORREGIDO PARA EVITAR DESBORDES) --- */
+.modalFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinea verticalmente al centro el bloque total y el botón */
+  gap: 16px;
+}
+
+.totalWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.totalLabel {
+  font-size: 0.7rem;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* Contenedor vertical compacto para los montos */
+.totalPriceContainer {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  gap: 0px; 
+}
+
+.oldPrice {
+  font-size: 0.85rem;
+  color: #555555;
+  text-decoration: line-through;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.totalPrice {
+  font-size: 1.7rem; /* Un pelín más grande para destacar el impacto del ahorro */
+  font-weight: 900;
+  color: var(--color-accent);
+  line-height: 1.1;
+}
+
+.whatsappBtn {
+  background-color: var(--color-accent);
+  color: #000000;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Evita que el texto del botón se rompa en dos renglones */
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(222, 255, 154, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 680px) {
+  .modalBody {
+    grid-template-columns: 1fr;
+  }
+  .imageSection {
+    padding: 30px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+  .infoSection {
+    padding: 24px;
+  }
+  .modalFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .whatsappBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

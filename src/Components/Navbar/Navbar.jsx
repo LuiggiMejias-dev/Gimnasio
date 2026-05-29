@@ -47,7 +47,7 @@ export const Navbar = ({ setVistaActiva, vistaActiva }) => {
             </a>
           </li>
 
-          {/* Enlace Tienda (Nuevo) */}
+          {/* Enlace Tienda */}
           <li>
             <a 
               href="#tienda" 
@@ -91,7 +91,19 @@ export const Navbar = ({ setVistaActiva, vistaActiva }) => {
         </ul>
 
         <div className={styles.navActions}>
-          <button className={styles.joinButton}>Socio VIP</button>
+          {/* Botón Socio VIP con detector de clics en consola */}
+          <button 
+            className={`${styles.joinButton} ${vistaActiva === 'precios' ? styles.activeJoinButton : ''}`}
+            onClick={() => {
+              console.log("-> ¡Clic en Socio VIP detectado exitosamente en Navbar.jsx!");
+              if (setVistaActiva) {
+                setVistaActiva('precios');
+              }
+            }}
+            aria-label="Ir a planes y membresía Socio VIP"
+          >
+            Socio VIP
+          </button>
         </div>
       </nav>
 

@@ -57,12 +57,13 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .productCard:hover {
   transform: translateY(-6px);
   border-color: rgba(222, 255, 154, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 .cardHeader {
@@ -93,11 +94,11 @@
   letter-spacing: 0.5px;
 }
 
-/* --- CONTENEDOR DE LA IMAGEN (FIX PRINCIPAL) --- */
+/* --- CONTENEDOR DE LA IMAGEN --- */
 .imageWrapper {
   height: 220px;            /* Altura fija y clara para el contenedor */
   width: 100%;             /* Ancho completo de la tarjeta */
-  background-color: rgba(255, 255, 255, 0.02); /* Fondo sutil de prueba */
+  background-color: rgba(255, 255, 255, 0.01); 
   border-radius: 6px;
   display: flex;           /* Flexbox para centrar la imagen */
   justify-content: center;
@@ -159,6 +160,11 @@
   margin-top: auto;        /* Empuja el precio al fondo equitativamente */
 }
 
+.priceWrapper {
+  display: flex;
+  align-items: baseline;
+}
+
 .price {
   font-size: 1.5rem;
   font-weight: 900;
@@ -172,7 +178,13 @@
   font-weight: 700;
 }
 
+/* --- BOTÓN ADQUIRIR (Ajustado para enlace <a>) --- */
 .buyBtn {
+  display: inline-flex;     /* Permite centrar el icono junto al texto */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;                 /* Separación limpia entre icono y texto */
+  text-decoration: none;    /* Quita el subrayado nativo de las etiquetas <a> */
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
@@ -187,12 +199,25 @@
 
 .buyBtn:hover {
   background-color: var(--color-accent);
-  color: #000000;
+  color: #000000 !important; /* Fuerza el color negro para el contraste con el verde */
   border-color: var(--color-accent);
+  box-shadow: 0 4px 15px rgba(222, 255, 154, 0.3);
+}
+
+/* Micro-interacción en el icono de bolsa */
+.buyIcon {
+  transition: transform 0.2s ease;
+}
+
+.buyBtn:hover .buyIcon {
+  transform: scale(1.1); /* Efecto de crecimiento sutil en hover */
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
+  .tiendaSection {
+    padding: 80px 24px;
+  }
   .productosGrid {
     grid-template-columns: 1fr;
     gap: 24px;

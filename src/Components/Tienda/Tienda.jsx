@@ -1,14 +1,17 @@
-import React from 'react';
-import { Zap, Shield, Sparkles, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { Zap, Shield, Sparkles, Star, ShoppingBag } from 'lucide-react';
+import { ProductoModal } from './ProductoModal'; // Importamos el nuevo modal
 import styles from './Tienda.module.css';
 
-// --- IMPORTACIÓN LOCAL ABSOLUTA EN VITE ---
-// Asegúrate de que tus archivos en src/assets/ se llamen exactamente así y en minúsculas
 import imgProteina from '/src/assets/proteina.png';
 import imgCreatina from '/src/assets/creatina.png';
 import imgVitaminas from '/src/assets/vitaminas.png';
 
 export const Tienda = () => {
+  // Estados para controlar la apertura del modal y el producto activo
+  const [modalOpen, setModalOpen] = useState(false);
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
   const productos = [
     {
       id: 1,
@@ -45,6 +48,12 @@ export const Tienda = () => {
     }
   ];
 
+  // Función al pulsar Adquirir en cualquier tarjeta
+  const handleOpenModal = (producto) => {
+    setProductoSeleccionado(producto);
+    setModalOpen(true);
+  };
+
   return (
     <section id="tienda" className={styles.tiendaSection}>
       <div className={styles.container}>
@@ -63,7 +72,6 @@ export const Tienda = () => {
           {productos.map((prod) => (
             <div key={prod.id} className={styles.productCard}>
               
-              {/* Badge dinámico */}
               <div className={styles.cardHeader}>
                 <span className={styles.productTag}>
                   {prod.icon} {prod.tag}
@@ -71,19 +79,13 @@ export const Tienda = () => {
                 <span className={styles.categoryName}>{prod.categoria}</span>
               </div>
 
-              {/* Contenedor de Imagen */}
               <div className={styles.imageWrapper}>
-                <img 
-                  src={prod.imagen} 
-                  alt={prod.nombre} 
-                  className={styles.productImage} 
-                />
+                <img src={prod.imagen} alt={prod.nombre} className={styles.productImage} />
               </div>
 
               <div className={styles.infoBox}>
                 <h3 className={styles.productName}>{prod.nombre}</h3>
                 
-                {/* Lista de mini beneficios */}
                 <ul className={styles.benefitsList}>
                   {prod.beneficios.map((ben, idx) => (
                     <li key={idx}>
@@ -97,7 +99,14 @@ export const Tienda = () => {
                     <span className={styles.price}>{prod.precio}</span>
                     <span className={styles.currency}>PEN</span>
                   </div>
-                  <button className={styles.buyBtn}>Adquirir</button>
+
+                  {/* El botón ahora abre el modal pasando la info del producto */}
+                  <button 
+                    className={styles.buyBtn}
+                    onClick={() => handleOpenModal(prod)}
+                  >
+                    <ShoppingBag size={14} className={styles.buyIcon} /> Adquirir
+                  </button>
                 </div>
               </div>
 
@@ -106,6 +115,13 @@ export const Tienda = () => {
         </div>
 
       </div>
+
+      {/* Render del Modal de Producto */}
+      <ProductoModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        producto={productoSeleccionado} 
+      />
     </section>
   );
 };
